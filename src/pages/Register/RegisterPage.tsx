@@ -1,8 +1,10 @@
+import Form from './components/Form'
+
 const RegisterPage = () => {
   return (
-    <div>
-      <p>Register Page</p>
-    </div>
+    <main className='h-screen flex items-center justify-center'>
+      <Form />
+    </main>
   )
 }
 
