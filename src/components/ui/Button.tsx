@@ -2,11 +2,13 @@ import { cn } from '../../helpers/cn'
 
 interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
 }
 
 const Button = ({
   children,
   type = 'button',
+  disabled = false,
   className,
   ...props
 }: IButton) => {
@@ -17,6 +19,7 @@ const Button = ({
         className
       )}
       type={type}
+      disabled={disabled}
       {...props}
     >
       {children}
