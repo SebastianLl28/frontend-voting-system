@@ -8,16 +8,25 @@ const LoginPage = lazy(() => import('./pages/Login/LoginPage'))
 const RegisterPage = lazy(() => import('./pages/Register/RegisterPage'))
 const HomePage = lazy(() => import('./pages/home/HomePage'))
 const NotFoundPage = lazy(() => import('./pages/404/NotFoundPage'))
+const DashboardPage = lazy(() => import('./pages/dashboard/DashboardPage'))
+import Header from '@shared/header/Header'
+import { APP } from './router'
+import LayoutSecurity from './layout/layout-security/LayoutSecurity'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loader />}>
+        <Header />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/*' element={<NotFoundPage />} />
+
+          <Route element={<LayoutSecurity />}>
+            <Route path={APP.DASHBOARD} element={<DashboardPage />} />
+          </Route>
         </Routes>
         <ToastContainer
           position='bottom-center'
@@ -26,11 +35,9 @@ const App = () => {
           newestOnTop={false}
           closeOnClick
           rtl={false}
-          pauseOnFocusLoss={false}
           theme='light'
           transition={Bounce}
           draggable
-          pauseOnHover
         />
       </Suspense>
     </BrowserRouter>

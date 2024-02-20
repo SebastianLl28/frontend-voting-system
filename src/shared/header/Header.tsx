@@ -13,7 +13,7 @@ const Header = () => {
     <header className='sticky top-0 z-50 w-full border-b bg-white'>
       <div className='container mx-auto grid grid-cols-2 items-center md:grid-cols-3'>
         <div className='justify-self-start'>
-          <Link to='#'>
+          <Link to='/'>
             <img src={Logo} alt='logo' className='w-20' />
           </Link>
         </div>

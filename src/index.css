@@ -28,4 +28,8 @@
       transform: rotate(1turn);
     }
   }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
 }
