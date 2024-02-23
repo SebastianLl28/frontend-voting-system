@@ -12,6 +12,7 @@ const DashboardPage = lazy(() => import('./pages/dashboard/DashboardPage'))
 import Header from '@shared/header/Header'
 import { APP } from './router'
 import LayoutSecurity from './layout/layout-security/LayoutSecurity'
+import LayoutApp from './layout/layout-app/LayoutApp'
 
 const App = () => {
   return (
@@ -25,7 +26,9 @@ const App = () => {
           <Route path='/*' element={<NotFoundPage />} />
 
           <Route element={<LayoutSecurity />}>
-            <Route path={APP.DASHBOARD} element={<DashboardPage />} />
+            <Route element={<LayoutApp />}>
+              <Route path={APP.DASHBOARD} element={<DashboardPage />} />
+            </Route>
           </Route>
         </Routes>
         <ToastContainer
